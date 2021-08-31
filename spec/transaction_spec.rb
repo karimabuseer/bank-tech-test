@@ -1,4 +1,5 @@
 require 'transaction'
+
 describe Transaction do
   let(:withdraw_five_transaction) { Transaction.new(debit: 5, balance: 10) }
   let(:deposit_three_transaction) { Transaction.new(credit: 3, balance: 10) }
