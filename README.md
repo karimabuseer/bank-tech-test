@@ -11,5 +11,33 @@
 
 ## User Stories
 ````
-Testing fenced blocks.
+As a Customer,
+So I can store my money,
+I want to create an empty bank account
 ````
+
+````
+As a Customer,
+So I can keep my money secure,
+I want to be able to deposit money into my bank account
+````
+
+````
+As a Customer,
+So I can use my money,
+I want to be able to withdraw money from my bank account
+````
+
+````
+As a Customer,
+So I can further my account,
+I want to be able to see when transactions were made
+````
+
+````
+As a Customer,
+So I can track my account,
+I want to be able to see my bank statement
+````
+
+## Usage
