@@ -45,6 +45,24 @@ As a Customer,
 So I can track my account,
 I want to be able to see my bank statement
 ````
+
+````
+As a Bank Owner,
+So I can protect my bank,
+I want to stop customers from withdrawing money they don't have
+````
+
+````
+As a Bank Owner,
+To protect my customers,
+I want to stop customers from withdrawing more than £300 at once
+````
+
+````
+As a Bank Owner,
+To prevent fraud,
+I want to stop customers from depositing more than £300 at once
+````
 ## CRC Cards and Object Models
 
 ## Usage
