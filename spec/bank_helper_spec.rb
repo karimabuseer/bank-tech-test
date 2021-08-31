@@ -5,8 +5,7 @@ describe BankHelper do
       expect(subject.transactions).to eq([])
     end
 
-    it 'You can make a deposit' do
-      expect(subject).to receive(:deposit).with(1)
-      subject.deposit(10)
+    it 'The account balance starts at 0' do
+      expect(subject.balance).to eq(0)
     end
 end

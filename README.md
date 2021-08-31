@@ -19,6 +19,12 @@ I want to create an empty bank account
 ````
 As a Customer,
 So I can keep my money secure,
+I want to receive a deposit confirmation message
+````
+
+````
+As a Customer,
+So I can keep track of my deposits,
 I want to be able to deposit money into my bank account
 ````
 
@@ -39,5 +45,6 @@ As a Customer,
 So I can track my account,
 I want to be able to see my bank statement
 ````
+## CRC Cards and Object Models
 
 ## Usage
