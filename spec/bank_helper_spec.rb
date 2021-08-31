@@ -16,6 +16,11 @@ describe BankHelper do
       subject.deposit(5)
       expect(subject.balance).to eq(5)
     end
+
+    it 'Succesfully depositing money gives me a confirmation' do
+      expect(STDOUT).to receive(:puts).with("You have successfully deposited £5.")
+      subject.deposit(5)
+    end
   end
 
   describe '#withdraw' do
@@ -27,6 +32,12 @@ describe BankHelper do
 
     it 'Prevents customers from withdrawing more than their account balance' do
       expect{ subject.withdraw(1) }.to raise_error("You do not have sufficient funds to complete this request.")
+    end
+
+    it 'notifies me when I succesfully withdraw money' do
+      subject.deposit(5)
+      expect(STDOUT).to receive(:puts).with("You have successfully withdrawn £3.")
+      subject.withdraw(3)
     end
   end
 
