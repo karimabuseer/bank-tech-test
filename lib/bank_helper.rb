@@ -32,4 +32,9 @@ class BankHelper
   def overdraft_check(amount)
     raise "You do not have sufficient funds to complete this request." if amount > @balance
   end
+
+  def print_transactions
+    puts 'date || credit || debit || balance'
+  end
+
 end

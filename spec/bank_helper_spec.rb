@@ -41,5 +41,12 @@ describe BankHelper do
     end
   end
 
+  describe '#print_transactions' do
+    it 'prints off just headers when there are no transactions' do
+      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance")
+      subject.print_transactions
+    end
+  end
+
 
 end
