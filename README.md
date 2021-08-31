@@ -1,5 +1,6 @@
 # Bank Account Tech Test
 - Tech test for week 10 of Maker's Academy
+- Ruby program that mimics the functionality of a bank account. Accounts can be opened, and 
 ## Specs:
 - Can deposit money
 - Can withdraw money
@@ -66,3 +67,4 @@ I want to stop customers from depositing more than £300 at once
 ## CRC Cards and Object Models
 
 ## Usage
+The program can be run using 

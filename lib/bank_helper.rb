@@ -45,7 +45,7 @@ class BankHelper
   def print_transactions
     puts "#{header}"
     @transactions.map do |transaction| 
-      puts "#{transaction.date} || #{transaction.credit} || #{transaction.debit} || #{transaction.balance} "
+      puts "#{transaction.generate_formatted_record}"
     end
   end
 

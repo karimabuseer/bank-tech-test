@@ -18,4 +18,8 @@ class Transaction
   def format_balance(balance)
     sprintf('%.2f', balance)
   end
+
+  def generate_formatted_record
+    "#{@date} || #{@credit} || #{@debit} || #{@balance} "
+  end
 end
