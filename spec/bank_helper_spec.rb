@@ -24,6 +24,10 @@ describe BankHelper do
       subject.withdraw(3)
       expect(subject.balance).to eq(2)
     end
+
+    it 'Prevents customers from withdrawing more than their account balance' do
+      expect{ subject.withdraw(1) }.to raise_error("You do not have sufficient funds to complete this request.")
+    end
   end
 
 
