@@ -43,10 +43,24 @@ describe BankHelper do
 
   describe '#print_transactions' do
     it 'prints off just headers when there are no transactions' do
-      expect(STDOUT).to receive(:puts).with("date || credit || debit || balance")
-      subject.print_transactions
+      expect{ subject.print_transactions }.to output(("date || credit || debit || balance\n")).to_stdout
+    end
+    
+    it 'prints off a single deposit correctly' do
+      subject.deposit(5)
+      expect{ subject.print_transactions }.to output(("date || credit || debit || balance\n31/08/2021 || 5.00 ||  || 5.00 \n")).to_stdout
+    end
+
+    it 'prints off two deposits correctly' do
+    subject.deposit(3)
+    subject.deposit(2)
+    expect{ subject.print_transactions }.to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 \n")).to_stdout
+    end
+
+    it 'prints off a single deposit and a single withdrawal' do
+      subject.deposit(3)
+      subject.withdraw(1)
+      expect{ subject.print_transactions }.to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n")).to_stdout
     end
   end
-
-
 end
