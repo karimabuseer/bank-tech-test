@@ -11,10 +11,18 @@ describe BankHelper do
     end
   end
   
-  describe 'deposits' do
+  describe '#deposit' do
     it 'Depositing money adds to an account balance' do
       subject.deposit(5)
       expect(subject.balance).to eq(5)
+    end
+  end
+
+  describe '#withdraw' do
+    it "Withdrawing money takes away from account's balance" do
+      subject.deposit(5)
+      subject.withdraw(3)
+      expect(subject.balance).to eq(2)
     end
   end
 
