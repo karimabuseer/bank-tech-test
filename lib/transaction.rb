@@ -1,22 +1,25 @@
+# frozen_string_literal: true
+
 class Transaction
   attr_reader :debit, :credit, :date, :balance
-  def initialize(debit: nil, credit: nil, balance:)
-    @date = Time.now.strftime("%d/%m/%Y")
+
+  def initialize(balance:, debit: nil, credit: nil)
+    @date = Time.now.strftime('%d/%m/%Y')
     @debit = format_debit(debit)
     @credit = format_credit(credit)
     @balance = format_balance(balance)
   end
 
   def format_debit(debit)
-    debit ? @debit = sprintf('%.2f', debit) : @debit = ""
+    @debit = debit ? format('%.2f', debit) : ''
   end
 
   def format_credit(credit)
-    credit ? @credit = sprintf('%.2f', credit) : @credit = ""
+    @credit = credit ? format('%.2f', credit) : ''
   end
 
   def format_balance(balance)
-    sprintf('%.2f', balance)
+    format('%.2f', balance)
   end
 
   def generate_formatted_record

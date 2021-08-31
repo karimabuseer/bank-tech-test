@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative 'transaction'
 
 class BankHelper
@@ -29,9 +31,8 @@ class BankHelper
     puts "You have successfully withdrawn £#{amount}."
   end
 
-
   def overdraft_check(amount)
-    raise "You do not have sufficient funds to complete this request." if amount > @balance
+    raise 'You do not have sufficient funds to complete this request.' if amount > @balance
   end
 
   def store_transaction_credit(amount)
@@ -43,14 +44,13 @@ class BankHelper
   end
 
   def print_transactions
-    puts "#{header}"
-    @transactions.map do |transaction| 
-      puts "#{transaction.generate_formatted_record}"
+    puts header.to_s
+    @transactions.map do |transaction|
+      puts transaction.generate_formatted_record.to_s
     end
   end
 
   def header
     'date || credit || debit || balance'
   end
-
 end
