@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'bank_helper'
+require 'bank_account'
 
 describe BankHelper do
   describe 'initialization' do
