@@ -16,15 +16,23 @@ class BankAccount
     deposit_confirmation(amount)
   end
 
-  def deposit_confirmation(amount)
-    puts "You have successfully deposited £#{amount}."
-  end
-
   def withdraw(amount)
     overdraft_check(amount)
     @balance -= amount
     store_transaction_debit(amount)
     withdraw_confirmation(amount)
+  end
+
+
+  def print_statement
+    puts header.to_s
+    puts print_transactions
+  end
+
+  private
+
+  def deposit_confirmation(amount)
+    puts "You have successfully deposited £#{amount}."
   end
 
   def withdraw_confirmation(amount)
@@ -41,11 +49,6 @@ class BankAccount
 
   def store_transaction_debit(amount)
     @transactions << Transaction.new(credit: nil, debit: amount, balance: @balance)
-  end
-
-  def print_statement
-    puts header.to_s
-    puts print_transactions
   end
 
   def print_transactions
