@@ -3,7 +3,7 @@
 require 'bank_account'
 require 'transaction'
 
-describe BankHelper do
+describe BankAccount do
   describe 'initialization' do
     it 'inits with no transactions in array' do
       expect(subject.transactions).to eq([])

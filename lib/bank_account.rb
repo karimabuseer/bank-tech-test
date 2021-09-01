@@ -2,7 +2,7 @@
 
 require_relative 'transaction'
 
-class BankHelper
+class BankAccount
   attr_reader :balance, :transactions
 
   def initialize
