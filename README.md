@@ -41,9 +41,9 @@ rspec
 5. I extracted a class from the hashes, with each representing a single transaction.
 6. Once this was done, I considered creating a printer class that would be in charge of printing out statements. I decided this wasn't necessary, as it makes sense for an account to be able to draw together a list of transactions (and account wasn't particularly bloated). I did decide to add a formatting method to each transaction class, however.
 7. I then refactored my tests to work off of a stubbed method for transaction, and added helper methods to DRY out the automated tests.
-8. I made some final refactors to the code - moved sensitive methods to be private.
+8. I made some final refactors to the code - moved sensitive methods to be private. I also considered that it would make sense for the most recent transactions to come up first in the printed statement, so I changed my tests and code to reflect this. 
 ## Running App
-
+![Running App](images/running_app.ping)
 
 
 ## User Stories
@@ -51,7 +51,7 @@ rspec
 As a Customer,
 So I can store my money,
 I want to create an empty bank account
-````
+````  
 
 ````
 As a Customer,

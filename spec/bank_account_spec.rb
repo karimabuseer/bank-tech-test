@@ -60,14 +60,14 @@ describe BankAccount do
       deposit_three
       deposit_two
       mock_print_two_deposits
-      expect { subject.print_statement } .to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 \n")).to_stdout
+      expect { subject.print_statement } .to output("date || credit || debit || balance\n31/08/2021 || 2.00 ||  || 5.00 \n31/08/2021 || 3.00 ||  || 3.00 \n").to_stdout
     end
 
     it 'prints off a single deposit and a single withdrawal' do
       deposit_three
       withdraw_one
       mock_one_deposit_one_withdrawal
-      expect { subject.print_statement } .to output("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n").to_stdout
+      expect { subject.print_statement } .to output("date || credit || debit || balance\n31/08/2021 ||  || 1.00 || 2.00 \n31/08/2021 || 3.00 ||  || 3.00 \n").to_stdout
     end
   end
 end

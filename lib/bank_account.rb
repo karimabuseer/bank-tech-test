@@ -52,7 +52,7 @@ class BankAccount
   end
 
   def print_transactions
-    @transactions.map do |transaction|
+    @transactions.reverse.map do |transaction|
       transaction.generate_formatted_record.to_s
     end
   end
