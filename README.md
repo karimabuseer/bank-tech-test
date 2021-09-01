@@ -43,7 +43,8 @@ rspec
 7. I then refactored my tests to work off of a stubbed method for transaction, and added helper methods to DRY out the automated tests.
 8. I made some final refactors to the code - moved sensitive methods to be private. I also considered that it would make sense for the most recent transactions to come up first in the printed statement, so I changed my tests and code to reflect this. 
 ## Running App
-![Running App](images/running_app.ping)
+Note the statements being printed in reverse order.
+![Running App](https://github.com/karimabuseer/bank-tech-test/blob/main/images/running_app.png)
 
 
 ## User Stories
@@ -101,5 +102,6 @@ To prevent fraud,
 I want to stop customers from depositing more than £300 at once
 ````
 ## CRC Cards and Object Models
+![Account CRC card](https://github.com/karimabuseer/bank-tech-test/blob/main/images/account.png)
 
-
+![Transaction CRC card](https://github.com/karimabuseer/bank-tech-test/blob/main/images/transaction.png)
