@@ -16,20 +16,20 @@ describe BankHelper do
 
   describe '#deposit' do
     it 'Depositing money adds to an account balance' do
-      subject.deposit(5)
+      deposit_five
       expect(subject.balance).to eq(5)
     end
 
     it 'Succesfully depositing money gives me a confirmation' do
       expect($stdout).to receive(:puts).with('You have successfully deposited £5.')
-      subject.deposit(5)
+      deposit_five
     end
   end
 
   describe '#withdraw' do
     it "Withdrawing money takes away from account's balance" do
-      subject.deposit(5)
-      subject.withdraw(3)
+      deposit_five
+      withdraw_three
       expect(subject.balance).to eq(2)
     end
 
@@ -38,43 +38,36 @@ describe BankHelper do
     end
 
     it 'notifies me when I succesfully withdraw money' do
-      subject.deposit(5)
+      deposit_five
       expect($stdout).to receive(:puts).with('You have successfully withdrawn £3.')
-      subject.withdraw(3)
+      withdraw_three
     end
   end
 
   describe '#print_transactions' do
+
     it 'prints off just headers when there are no transactions' do
       expect { subject.print_statement }.to output(("date || credit || debit || balance\n")).to_stdout
     end
-    context 'single deposit' do
+
     it 'prints off a single deposit correctly' do
-      subject.deposit(5)
-      allow(subject).to receive(:print_transactions).and_return('31/08/2021 || 5.00 ||  || 5.00 ')
-      expect do
-        subject.print_statement
-      end.to output(("date || credit || debit || balance\n31/08/2021 || 5.00 ||  || 5.00 \n")).to_stdout
+      deposit_five
+      mock_print_one_deposit
+      expect { subject.print_statement } .to output(("date || credit || debit || balance\n31/08/2021 || 5.00 ||  || 5.00 \n")).to_stdout
     end
-  end
-  context 'do thing' do
+
     it 'prints off two deposits correctly' do
-      subject.deposit(3)
-      subject.deposit(2)
-      allow(subject).to receive(:print_transactions).and_return("31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 ")
-      expect do
-        subject.print_statement
-      end.to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 \n")).to_stdout
+      deposit_three
+      deposit_two
+      mock_print_two_deposits
+      expect { subject.print_statement } .to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 \n")).to_stdout
     end
-  end
 
     it 'prints off a single deposit and a single withdrawal' do
-      subject.deposit(3)
-      subject.withdraw(1)
-      allow(subject).to receive(:print_transactions).and_return("31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n")
-      expect do
-        subject.print_statement
-      end.to output("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n").to_stdout
+      deposit_three
+      withdraw_one
+      mock_one_deposit_one_withdrawal
+      expect { subject.print_statement } .to output("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n").to_stdout
     end
   end
 end
