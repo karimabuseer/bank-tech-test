@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'bank_account'
+require 'transaction'
 
 describe BankHelper do
   describe 'initialization' do
@@ -45,30 +46,35 @@ describe BankHelper do
 
   describe '#print_transactions' do
     it 'prints off just headers when there are no transactions' do
-      expect { subject.print_transactions }.to output(("date || credit || debit || balance\n")).to_stdout
+      expect { subject.print_statement }.to output(("date || credit || debit || balance\n")).to_stdout
     end
-
+    context 'single deposit' do
     it 'prints off a single deposit correctly' do
       subject.deposit(5)
+      allow(subject).to receive(:print_transactions).and_return('31/08/2021 || 5.00 ||  || 5.00 ')
       expect do
-        subject.print_transactions
+        subject.print_statement
       end.to output(("date || credit || debit || balance\n31/08/2021 || 5.00 ||  || 5.00 \n")).to_stdout
     end
-
+  end
+  context 'do thing' do
     it 'prints off two deposits correctly' do
       subject.deposit(3)
       subject.deposit(2)
+      allow(subject).to receive(:print_transactions).and_return("31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 ")
       expect do
-        subject.print_transactions
+        subject.print_statement
       end.to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 || 2.00 ||  || 5.00 \n")).to_stdout
     end
+  end
 
     it 'prints off a single deposit and a single withdrawal' do
       subject.deposit(3)
       subject.withdraw(1)
+      allow(subject).to receive(:print_transactions).and_return("31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n")
       expect do
-        subject.print_transactions
-      end.to output(("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n")).to_stdout
+        subject.print_statement
+      end.to output("date || credit || debit || balance\n31/08/2021 || 3.00 ||  || 3.00 \n31/08/2021 ||  || 1.00 || 2.00 \n").to_stdout
     end
   end
 end

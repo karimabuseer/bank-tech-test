@@ -43,10 +43,14 @@ class BankHelper
     @transactions << Transaction.new(credit: nil, debit: amount, balance: @balance)
   end
 
-  def print_transactions
+  def print_statement
     puts header.to_s
+    puts print_transactions
+  end
+
+  def print_transactions
     @transactions.map do |transaction|
-      puts transaction.generate_formatted_record.to_s
+      transaction.generate_formatted_record.to_s
     end
   end
 
