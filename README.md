@@ -33,6 +33,14 @@ account.print_statement
 rspec
 ````
 
+## Approach
+1. I initially created a bank account class following the TDD design pattern. I started with the deposit method
+2. I then created a balance that deposits were added on to, and used the balance method to create a withdrawal method
+3. I then considered Guard conditions. I decided a condition against overdrafts made sense. I also added a guard condition against withdrawing large sums of money, but decided against it. I'd already demonstrated I could TDD in a guard condition, and decided additional guards would be overengineering.
+4. I created an array of hashes within the account that recorded prior withdrawals and deposits.
+5. I extracted a class from the hashes, with each representing a single transaction.
+6. Once this was done, I considered creating a printer class that would be in charge of printing out statements. I decided this wasn't necessary, as it makes sense for an account to be able to draw together a list of transactions (and account wasn't particularly bloated). I did decide to add a formatting method to each transaction class, however.
+
 
 ## User Stories
 ````
@@ -76,7 +84,7 @@ As a Bank Owner,
 So I can protect my bank,
 I want to stop customers from withdrawing money they don't have
 ````
-
+## Potential future user stories? 
 ````
 As a Bank Owner,
 To protect my customers,
@@ -90,5 +98,4 @@ I want to stop customers from depositing more than £300 at once
 ````
 ## CRC Cards and Object Models
 
-## Usage
-The program can be run using 
+
