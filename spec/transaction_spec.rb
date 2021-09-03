@@ -12,15 +12,15 @@ describe Transaction do
   end
 
   it 'formats the date correctly' do
-    expect(withdraw_five_transaction.date).to eq('31/08/2021')
+    expect(withdraw_five_transaction.instance_variable_get('@date')).to eq('31/08/2021')
   end
 
   it 'formats a withdrawal correctly' do
-    expect(withdraw_five_transaction.debit).to eq('5.00 ')
+    expect(withdraw_five_transaction.instance_variable_get('@debit')).to eq('5.00 ')
   end
 
   it 'formats a deposit correctly' do
-    expect(deposit_three_transaction.credit).to eq('3.00 ')
+    expect(deposit_three_transaction.instance_variable_get('@credit')).to eq('3.00 ')
   end
 
   it 'produces a record of the transaction' do

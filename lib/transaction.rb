@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 class Transaction
-  attr_reader :debit, :credit, :date, :balance
-
+  
   def initialize(balance:, debit: nil, credit: nil)
     @date = Time.now.strftime('%d/%m/%Y')
     @debit = format_debit(debit)
