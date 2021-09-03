@@ -40,7 +40,9 @@ class BankAccount
   end
 
   def overdraft_check(amount)
-    raise 'You do not have sufficient funds to complete this request.' if amount > @balance
+    if amount > @balance
+      raise 'You do not have sufficient funds to complete this request.'
+    end
   end
 
   def store_transaction_credit(amount)
