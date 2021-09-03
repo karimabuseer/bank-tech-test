@@ -11,11 +11,11 @@ class Transaction
   end
 
   def format_debit(debit)
-    @debit = debit ? format('%.2f', debit) : ''
+    @debit = debit ? format('%.2f', debit) + " " : ""
   end
 
   def format_credit(credit)
-    @credit = credit ? format('%.2f', credit) : ''
+    @credit = credit ? format('%.2f', credit) + " ": ""
   end
 
   def format_balance(balance)
@@ -23,6 +23,6 @@ class Transaction
   end
 
   def generate_formatted_record
-    "#{@date} || #{@credit} || #{@debit} || #{@balance} "
+    "#{@date} || #{@credit}|| #{@debit}|| #{@balance}"
   end
 end

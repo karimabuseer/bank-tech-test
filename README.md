@@ -18,9 +18,9 @@ account = BankAccount.new
 account.deposit(5)
 ````
 
-6. To make a withdrawal from the account (in this example using £6):
+6. To make a withdrawal from the account (in this example using £3):
 ````
-account.deposit(6)
+account.withdraw(3)
 ````
 
 7. To view a history of transactions (starting with most recent):
