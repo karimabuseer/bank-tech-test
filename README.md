@@ -1,6 +1,6 @@
 # Bank Account Tech Test
 - Tech test for week 10 of Maker's Academy
-- Ruby program that mimics the functionality of a bank account. Accounts can be opened, and 
+- Ruby program that mimics the functionality of a bank account. Accounts can be opened, and deposits and withdrawals can be made.
 ## Usage:
 To use the app: 
 1. Clone the repository and pull to your local machine.
